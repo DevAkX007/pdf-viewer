@@ -1,0 +1,64 @@
+<div>
+  <ngx-extended-pdf-viewer
+    #pdfViewer
+    [src]="pdfSrc"
+    [customToolbar]="customToolbar"
+  >
+  </ngx-extended-pdf-viewer>
+</div>
+
+<ng-template #customToolbar>
+  <div id="toolbarViewer">
+    <div id="toolbarViewerLeft">
+      <pdf-toggle-sidebar></pdf-toggle-sidebar>
+      <div class="toolbarButtonSpacer"></div>
+      <pdf-paging-area></pdf-paging-area>
+    </div>
+
+    <pdf-zoom-toolbar></pdf-zoom-toolbar>
+
+    <div id="toolbarViewerRight">
+      <!-- Built-in Import/Open File Button -->
+      <div class="flex items-center">
+        <pdf-open-file></pdf-open-file>
+
+        <!-- Built-in Full Screen/Presentation Mode Button -->
+        <pdf-presentation-mode class="rounded-full"></pdf-presentation-mode>
+
+        <!-- Built-in Print Button -->
+        <pdf-print></pdf-print>
+
+        <!-- Built-in Download/Save Button -->
+        <pdf-download></pdf-download>
+
+        <!-- Custom Export as Blob Button -->
+        <button
+          type="button"
+          class="flex items-center justify-center rounded-md p-2 bg-amber-500 text-sm font-medium hover:bg-amber-600 focus:outline-none"
+          title="Export as Blob"
+          id="exportBlobButton"
+          (click)="export()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m7.875 14.25 1.214 1.942a2.25 2.25 0 0 0 1.908 1.058h2.006c.776 0 1.497-.4 1.908-1.058l1.214-1.942M2.41 9h4.636a2.25 2.25 0 0 1 1.872 1.002l.164.246a2.25 2.25 0 0 0 1.872 1.002h2.092a2.25 2.25 0 0 0 1.872-1.002l.164-.246A2.25 2.25 0 0 1 16.954 9h4.636M2.41 9a2.25 2.25 0 0 0-.16.832V12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 12V9.832c0-.287-.055-.57-.16-.832M2.41 9a2.25 2.25 0 0 1 .382-.632l3.285-3.832a2.25 2.25 0 0 1 1.708-.786h8.43c.657 0 1.281.287 1.709.786l3.284 3.832c.163.19.291.404.382.632M4.5 20.25h15A2.25 2.25 0 0 0 21.75 18v-2.625c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125V18a2.25 2.25 0 0 0 2.25 2.25Z"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <div class="verticalToolbarSeparator hiddenSmallView"></div>
+
+      <pdf-toggle-secondary-toolbar></pdf-toggle-secondary-toolbar>
+    </div>
+  </div>
+</ng-template>
