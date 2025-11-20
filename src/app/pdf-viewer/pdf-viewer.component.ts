@@ -25,8 +25,7 @@ import { finalize } from 'rxjs';
 export class PdfViewerComponent {
   pdfSrc: string = '/pdfs/Form 8300.pdf';
   isExporting = false;
-  exportSuccess = false;
-  exportError = false;
+
 
   private pdfViewerService = inject(NgxExtendedPdfViewerService);
   private http = inject(HttpClient);
