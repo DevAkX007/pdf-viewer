@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, } from '@angular/common/http';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -16,7 +16,7 @@ import { finalize } from 'rxjs';
 @Component({
   selector: 'app-pdf-viewer',
   standalone: true,
-  imports: [NgxExtendedPdfViewerModule, CommonModule, HttpClientModule],
+  imports: [NgxExtendedPdfViewerModule, CommonModule],
   templateUrl: './pdf-viewer.component.html',
   styleUrl: './pdf-viewer.component.css',
   providers: [NgxExtendedPdfViewerService, PDFNotificationService],
